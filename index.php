@@ -61,13 +61,13 @@ function fetchBooks($subject, $apiKey) {
 <body>
 <nav>
     <!--importing website logo-->
-    <div class="logo">Sec-Reads</div>
+    <div class="logo">TheEncryptedStack</div>
     <!--navigation menu-->
     <div class="nav-links">
         <a href="index.php">Home</a>
-        <a href="cart.php">Cart</a>
         <a href="#">About</a>
         <a href="#">Contact</a>
+        <a href="mycart.php">Cart</a>
     </div>
 </nav>
 <main>
