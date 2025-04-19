@@ -30,22 +30,7 @@ if (isset($_GET['added'])) {
 $apiKey = 'AIzaSyBX1edPcWsv8ed-x4gpmcLXlQ-0l4EDqNE';
 
 //array of categories to search books, using Google Books API
-$categories = [
-    'Cybersecurity',
-    'Network Security',
-    'Information Security',
-    'Computer Security',
-    'Cryptography',
-    'Digital Forensics',
-    'Penetration Testing',
-    'Hacking',
-    'Cyber Law',
-    'Cybercrime',
-    'Cloud Security',
-    'Security Engineering',
-    'Malware Analysis',
-    'Incident Response'
-];
+$subjects = ['Ethical Hacking', 'Network Administration', 'Digital Forensics', 'Cyber Crime', 'Information Technology'];
 
 //function to fetch up to four books from the Google Books API by category
 function fetchBooks($subject, $apiKey) {
@@ -65,14 +50,14 @@ function fetchBooks($subject, $apiKey) {
 ?>
 <!DOCTYPE html>
 <html>
+    
 <head>
     <!--creating title of the webpage-->
     <title>Sec-Reads Cyber Bookstore</title>
-    <!--importing font-->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
     <!--linking external styles sheet (CSS) for personalization-->
     <link rel="stylesheet" href="styles.css">
 </head>
+    
 <body>
 <nav>
     <!--importing website logo-->
@@ -106,14 +91,14 @@ function fetchBooks($subject, $apiKey) {
     </form>
 
     <!--looping through all categories to fetch and showcase the books-->
-    <?php foreach ($categories as $category): ?>
+    <?php foreach ($subjects as $s): ?>
         <?php
         //fetch boooks for the selected/current category
-        $books = fetchBooks($category, $apiKey);
+        $books = fetchBooks($s, $apiKey);
         //only continues if the book is found
         if (!empty($books)):
         ?>
-            <h2><?= htmlspecialchars($category) ?></h2>
+            <h2><?= htmlspecialchars($s) ?></h2>
             <!--creating grid container for book cards-->
             <div class="book-grid">
                 <!--looping through each book-->
