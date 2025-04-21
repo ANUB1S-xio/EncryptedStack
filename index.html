@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="xUA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,0">
+
+    <!--creating title of the webpage-->
+    <title>The Encrypted Stack - Cybersecurity Bookstore</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hack-font/3.3.0/web/hack.min.css">
+    <!--linking external styles sheet (CSS) for personalization-->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<!-- project header -->
+<header>
+    <!-- interactive logo title -->
+    <a href='index.html' class="nav-logo">TheEncryptedStack</a>
+
+        <!-- nav bar --> 
+        <div class="nav">
+            <a href="index.html">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="mycart.html" class="cart-logo"><img src="logos/shopping-cart.svg" alt="cart logo" class="cart"></a>
+            <
+        </div>
+
+        <!-- search feature -->
+    <form action="" class="book-search"> 
+        <label for="s" class=""></label></form>
+        <input type="query" name="" placeholder="Something more specific?"></form>
+
+</header>
+
+
+<!-- login page -->
+<div class="auth">
+
+    <form action="/login" method="POST"> <!-- security component -->
+
+        <!-- header -->
+        <p class="login-form">Login</p>
+
+        <label for="username">Email</label>
+        <input type="e" name="email" placeholder="Email here" id="email_u" class="user_input" required>
+
+        <label for="password">Password</label>
+        <input type="p" name="pass" placeholder="Password here" id="pass_u" class="user_input" required autocomplete="off">
+
+        <input type="enter" value="enter" class="button">
+        <!-- javascript links for java handler -->
+        <p>Forgot Password?<a href="javascript:void(0);" id="forgot-password" role="btn" aria-expanded="false">Click Here</a></p>
+        <p>Don't Have An Account?<a href="javascript:void(0);" id="create-acct" role="btn" aria-expanded="false">Create an Account</a></p>
+    </form>
+</div>
+
+<!-- sub title for the web page -->
+<section id="hero" class="hero-container">
+    <div class="hero-cont">
+        <h1>Intelligence = Cybersecurity.</h1>
+        <p>"If you think you know-it-all all about cybersecurity, this discipline was probably ill-explained to you..." -Stephane Nappo</p>
+    </div>
+</section>
+
+<section id="feat" class="feature-container">
+    <ul class="feat-topic" id="feature" data-topic="Featured">
+        
+    </ul>
+</section>
+
+
+<!-- simple scroll feature for subjects and books -->
+<section id="subjects" class="sub-container">
+    <ul class="cyber-topic" id="hacking" data-topic="Ethical Hacking">
+        <li class="book">
+            <img src="" alt="Cover">
+            <h3>Title</h3>
+            <p>Description</p>
+        </li>
+    </ul>
+    <ul class="cyber-topic" id="forensics" data-topic="Digital Forensics">
+        <li class="book">
+            <img src="" alt="Cover">
+            <h3>Title</h3>
+            <p>Description</p>
+        </li>
+    </ul>
+    <ul class="cyber-topic" id="network" data-topic="Network Defense">
+        <li class="book">
+            <img src="" alt="Cover">
+            <h3>Title</h3>
+            <p>Description</p>
+        </li>
+    </ul>
+</section>
