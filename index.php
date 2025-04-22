@@ -29,7 +29,7 @@
 
         <!-- search feature -->
     <form action="" class="book-search"> 
-        <label for="s" class=""></label></form>
+        <label for="s" class=""></label>
         <input type="query" name="" placeholder="Something more specific?"></form>
 
 </header>
