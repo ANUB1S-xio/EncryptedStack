@@ -1,3 +1,4 @@
+
 <?php
  //starts the session
  session_start();   
@@ -85,9 +86,9 @@
      <form method="POST" class="book-card">
          <h3>The Cyber Dummy Guide</h3>
          <!--hidden field to pass the book name-->
-         <input type="hidden" name="book" value="The Cyber Dummy Guide">
+         <input type="hidden" name="book" value="Test-Book">
          <!--description of a static book-->
-         <p>Used to test cart functionality with $0.01 purchase.</p>
+         <p>test $0.01</p>
          <!--adding a submit button-->
          <button type="submit">Add to Cart - $0.01</button>
      </form>
@@ -142,5 +143,33 @@
          <?php endif; ?>
      <?php endforeach; ?>
  </main>
+
+ <!-- simple contact form page -->
+<section class="contact" id="c">
+    <h2 class="contact-title">Have Questions? Please Contact Us!</h2>
+    <form autocomplete="off" id="form-comp">
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="text" name="subject" placeholder="Subject"required>
+        <textarea>
+            <input type="message" placeholder="Message" required>
+        </textarea>
+
+        <button class="button-sub" type="submit">Send</button>
+    </form>
+</section>
+
+<footer class="footer" id="foot">
+    <div class="col">
+        <div class="contacts-foot" id="contact-f">
+            <p id="contact-email" class="contact-e">Email: tannerlancaster@my.unt.edu</p>
+            <p id="phone" class="phone-num">Number: 123.123.1234</p>
+            <p id="contact-email" class="contact-e">Email: williamwoods@my.unt.edu</p>
+            <p id="phone" class="phone-num">Number: 123.123.1234</p>
+            <p id="contact-email" class="contact-e">Email: sheldonballard@my.unt.edu</p>
+            <p id="phone" class="phone-num">Number: 123.123.1234</p>
+        </div>
+    </div>
+</footer>
+
  </body>
  </html>
