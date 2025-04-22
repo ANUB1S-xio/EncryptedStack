@@ -7,46 +7,44 @@
   
   //handling form submission in order to add the book to the cart
   //created variable to store user-facing message regarding added items
-  $addedMessage = null;        
-  
+  $message = null;        
+    //google books API
+  $apiKey = 'AIzaSyBX1edPcWsv8ed-x4gpmcLXlQ-0l4EDqNE';
+
   //handling POST requests for adding a book to the cart
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {  
       //get "book" from POST data, fallback to null
-      $book = $_POST['book'] ?? null;        
+      $b = $_POST['book'] ?? null;        
       if ($book) {
           //adding the book to the cart array in the session
-          $_SESSION['cart'][] = $book;        
+          $_SESSION['cart'][] = $b;        
           //redirecting user to avoid form resubmission
-          header("Location: index.php?added=" . urlencode($book));        
+          header("Location: index.php?added=" . urlencode($b));        
           exit;
       }
   }
   //if redirected in URL, display a confirmation message
   if (isset($_GET['added'])) {   
       //cleaning up message
-      $addedMessage = htmlspecialchars($_GET['added']) . ' added to cart.';
+      $message = htmlspecialchars($_GET['added']) . ' added to cart.';
   }
-  
-  //google books API
-  $apiKey = 'AIzaSyBX1edPcWsv8ed-x4gpmcLXlQ-0l4EDqNE';
-  
   //array of categories to search books, using Google Books API
-  $subjects = ['Ethical Hacking', 'Network Administration', 'Digital Forensics', 'Cyber Crime', 'Information Technology'];
+  $subjects = ['Ethical Hacking', 'Network Administration', 'Digital Forensics', 'Cyber Crime', 'Information Technology', 'Penetration Testing', 'Cryptography', 'C++', 'Python Coding', 'Systems Administration'];
   
   //function to fetch up to four books from the Google Books API by category
   function fetchBooks($subject, $apiKey) {
       //encoding the subject for safe URL usage
-      $query = urlencode($subject);
+      $grab = urlencode($subject);
       //building the API URL
-      $url = "https://www.googleapis.com/books/v1/volumes?q=" . $query . "&maxResults=4&key=$apiKey";
+      $url = "https://www.googleapis.com/books/v1/volumes?q=" . $grab . "&maxResults=4&key=$apiKey";
       //making GET request (@ suppresses errors)
-      $response = @file_get_contents($url);
+      $r = @file_get_contents($url);
       //returns empty array if the request fails
-      if (!$response) return [];
+      if (!$r) return [];
       //decoding JSON into array
-      $data = json_decode($response, true);
+      $d = json_decode($r, true);
       //returns items or empty array if not found
-      return $data['items'] ?? [];
+      return $d['items'] ?? [];
   }
   ?>
   <!DOCTYPE html>
@@ -54,7 +52,7 @@
       
   <head>
       <!--creating title of the webpage-->
-      <title>Sec-Reads Cyber Bookstore</title>
+      <title>The Encrypted Stack - Cybersecurity Bookstore</title>
       <!--linking external styles sheet (CSS) for personalization-->
       <link rel="stylesheet" href="styles.css">
   </head>
@@ -73,22 +71,22 @@
   </nav>
   <main>
       <!--shows book added message if available/applicable-->
-      <?php if ($addedMessage): ?>
+      <?php if ($message): ?>
       <!--display message indicating book was added to cart-->
-          <div class="added-message"><?= $addedMessage ?></div>
+          <div class="added-message"><?= $message ?></div>
       <?php endif; ?>
   
       <h1>Explore Cybersecurity Books</h1>
   
       <!--form to add static book to the cart-->
       <form method="POST" class="book-card">
-          <h3>The Cyber Dummy Guide</h3>
+          <h3>Book Test 1</h3>
           <!--hidden field to pass the book name-->
           <input type="hidden" name="book" value="The Cyber Dummy Guide">
           <!--description of a static book-->
-          <p>Used to test cart functionality with $0.01 purchase.</p>
+          <p>Used to test cart $0.01</p>
           <!--adding a submit button-->
-          <button type="submit">Add to Cart - $0.01</button>
+          <button type="submit">$0.01</button>
       </form>
   
       <!--looping through all categories to fetch and showcase the books-->
@@ -118,8 +116,6 @@
                              'https://via.placeholder.com/128x195?text=No+Image';
                       //link to the book's info page
                       $link = $info['infoLink'] ?? '#';
-                      //getting the book's rating or else defaulted to "N/A"
-                      $rating = $info['averageRating'] ?? 'N/A';
                   ?>
   
                       <!--rendering the individual book card-->
@@ -128,10 +124,8 @@
                           <img src="<?= htmlspecialchars($img) ?>" alt="<?= htmlspecialchars($title) ?>">
                           <!--adding the book title-->
                           <h3><?= htmlspecialchars($title) ?></h3>
-                          <!--adding the display rating-->
-                          <p>Rating: <?= $rating ?></p>
                           <!--adding a shortened description of the book-->
-                          <p><?= htmlspecialchars(substr($desc, 0, 100)) ?>...</p>
+                          <p><?= htmlspecialchars(substr($desc, 0, 80)) ?>...</p>
                           <!--adding a link to the book's info-->
                           <a href="<?= htmlspecialchars($link) ?>" target="_blank">
                               <!--adding a button for the book's full info-->
@@ -140,6 +134,8 @@
                       </div>
                   <?php endforeach; ?>
               </div>
+
+    
           <?php endif; ?>
       <?php endforeach; ?>
   </main>
