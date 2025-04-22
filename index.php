@@ -128,26 +128,6 @@
          <!--adding a submit button-->
          <button type="buy">$0.01</button>
      </form>
-     <!--form to add static book to the cart-->
-     <form class="test" method="POST">
-        <!-- simple test --> 
-         <h3>Book Test 2</h3>
-         <input name="book" type="hidden" value="Test-Book">
-
-         <p>test $0.01</p>
-         <!--adding a submit button-->
-         <button type="buy">$0.01</button>
-     </form>
-     <!--form to add static book to the cart-->
-     <form class="test" method="POST">
-        <!-- simple test --> 
-         <h3>Book Test 3</h3>
-         <input name="book" type="hidden" value="Test-Book">
-
-         <p>test $0.01</p>
-         <!--adding a submit button-->
-         <button type="buy">$0.01</button>
-     </form>
  
     <!--looping through all categories to fetch and showcase the books-->
     <?php 
