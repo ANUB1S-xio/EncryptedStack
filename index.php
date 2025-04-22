@@ -177,10 +177,10 @@
     <h1>Explore Cybersecurity Books</h1>
   
       <!--form to add static book to the cart-->
-      <form method="POST" class="book-card">
+      <form method="POST" class="bookbox">
           <h3>Book Test 1</h3>
           <!--hidden field to pass the book name-->
-          <input type="hidden" name="book" value="The Cyber Dummy Guide">
+          <input type="hidden" name="book" value="test">
           <!--description of a static book-->
           <p>Used to test cart $0.01</p>
           <!--adding a submit button-->
@@ -197,7 +197,7 @@
           ?>
               <h2><?= htmlspecialchars($s) ?></h2>
               <!--creating grid container for book cards-->
-              <div class="book-grid">
+              <div class="bookbox">
                   <!--looping through each book-->
                   <?php foreach ($books as $bookItem):
                       //shortcut to volumeInfo array
@@ -217,7 +217,7 @@
                   ?>
   
                       <!--rendering the individual book card-->
-                      <div class="book-card">
+                      <div class="bookbox">
                           <!--adding the book cover image-->
                           <img src="<?= htmlspecialchars($img) ?>" alt="<?= htmlspecialchars($title) ?>">
                           <!--adding the book title-->
