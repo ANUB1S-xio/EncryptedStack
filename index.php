@@ -70,7 +70,7 @@
           <a href="#About">About</a>
           <a href="#main-footer">Contact</a>
           <a href="mycart.php">Cart</a>
-          <a href="/.auth/login/github">Login</a>
+          <a href="/auth/login/github">Login</a>
 
       </div>
   </nav>
