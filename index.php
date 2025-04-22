@@ -1,6 +1,6 @@
 
 <?php
-  if ($_SERVER["REQUEST_METHOD"] === "POST") {
+  /*if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (isset($_POST["signbutton"])) {
 
         //declare user, pass, and confirm
@@ -52,7 +52,7 @@
         echo "Login Failed. Invalid Username or Password";
       }
     }
-
+*/
   //starts the session
   session_start();        
   //creating an empty cart if one doesn't exist yet
