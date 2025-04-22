@@ -31,6 +31,13 @@ button:hover {
     color: #000000;
 }
 
+.center-wrapper {
+    padding: 40px 0;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
 .content-box {
     max-width: 600px; 
     margin: 40px auto;
