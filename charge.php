@@ -3,7 +3,7 @@
 require 'stripe/init.php';
 
 // This will set your secret Stripe API key (it uses environment variables in production)
-\Stripe\Stripe::setApiKey('pk_test_51RGVh9GhtDQiIcjcyZ9T829FmMGWulgi5MuzGz1itcee5yRqtHP9RId71Lfi3ZH5A9v5LtSvMpG9QX4G7GxCNOxc00IxE36D3A');
+\Stripe\Stripe::setApiKey('sk_test_51RGVh9GhtDQiIcjcq8f3vTZRw83T8kx4oAAR8zdledu3UItY5PLmFqELejVvpxapcVnfFfQTyjcc4uqwmgqnmXiM00GY92gbLn');
 
 // This will create a Stripe Checkout session for a simple purchase
 $session = \Stripe\Checkout\Session::create([
