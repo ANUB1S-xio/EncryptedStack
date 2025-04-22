@@ -1,58 +1,5 @@
 
 <?php
-  /* if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    if (isset($_POST["signbutton"])) {
-
-        //declare user, pass, and confirm
-      $us = $_POST['signuser'];
-      $pass = $_POST['signpass'];
-
-      $verify = $_POST['verify'];
-
-        // check if pass exists
-      if ($pass != $verify) {
-        echo "Username or Password do not match or exist. Please try again.";
-        exit;
-      }
-
-      //obfuscate by hashing
-      $obf = password_hash($pass, PASSWORD_DEFAULT);
-
-      //check if users.json exists
-      if (file_exists("users.json")) {
-        $u = json_decode(file_get_contents("users.json"), true);
-      }
-      else {
-        $u == [];
-      }
-
-      //set ip with 4 digit randomness and set dictionary
-      $id_num = random_int(10000, 9999);
-      $u[] = ["id" => $id_num, "username" => $us, "password" => $obf];
-
-      file_put_contents("users.json", json_encode($u, JSON_PRETTY_PRINT));
-      echo "Account Created. Thank you for choosing The Encrypted Stack!";
-    } else if (isset($_POST["logbutton"])) {
-      $us = $_POST['userlog'];
-      $pass = $_POST['userpass'];
-
-        //check if users.json exists
-      if (file_exists("users.json")) {
-        $u = json_decode(file_get_contents("users.json"), true);
-      }
-      else {
-        $u == [];
-      }
-  //iterate through the array and determine successful login
-      foreach ($u as $i) {
-        if ($i['username'] === $us && password_verify($pass, $i['password'])) {
-          $_SESSION['user'] = $i['username'];
-          echo "Login Successfull!";
-        }
-        echo "Login Failed. Invalid Username or Password";
-      }
-    }
-*/
   //starts the session
   session_start();        
   //creating an empty cart if one doesn't exist yet
@@ -123,7 +70,6 @@
           <a href="#About">About</a>
           <a href="#main-footer">Contact</a>
           <a href="mycart.php">Cart</a>
-          <a href="login-container">Login/Signup</a>
       </div>
   </nav>
   <main>
