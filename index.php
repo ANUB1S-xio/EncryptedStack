@@ -378,7 +378,7 @@
          .footer-content h3 {
              margin-bottom: 20px;
              font-size: 1.5em;
-             color: #f0f0f0;
+             color: #000;
              border-bottom: 1px solid #444;
              padding-bottom: 10px;
          }
@@ -395,13 +395,13 @@
          }
  
          .contact-item a {
-             color: #ccc;
+             color: #000;
              text-decoration: none;
          }
  
          .contact-item a:hover {
              text-decoration: underline;
-             color: #fff;
+             color: #000;
          }
      </style>
  
