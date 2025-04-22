@@ -197,6 +197,7 @@
           ?>
               <h2><?= htmlspecialchars($s) ?></h2>
               <!--creating grid container for book cards-->
+          <div class="scroll">
               <div class="book-grid">
                   <!--looping through each book-->
                   <?php foreach ($books as $bookItem):
@@ -221,19 +222,18 @@
                           <!--adding the book cover image-->
                           <img src="<?= htmlspecialchars($img) ?>" alt="<?= htmlspecialchars($title) ?>">
                           <!--adding the book title-->
-                          <h3><?= htmlspecialchars($title) ?></h3>
+                          <h3><?= htmlspecialchars(substr($title, 0, 6)) ?>...</h3>
                           <!--adding a shortened description of the book-->
                           <p><?= htmlspecialchars(substr($desc, 0, 80)) ?>...</p>
                           <!--adding a link to the book's info-->
                           <a href="<?= htmlspecialchars($link) ?>" target="_blank">
                               <!--adding a button for the book's full info-->
-                              <button type="button">View Book</button>
+                              <button type="button">Visit</button>
                           </a>
                       </div>
                   <?php endforeach; ?>
               </div>
-
-    
+          </div>
           <?php endif; ?>
       <?php endforeach; ?>
   </main>
