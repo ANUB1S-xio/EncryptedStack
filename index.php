@@ -32,7 +32,7 @@
   $subjects = ['Ethical Hacking', 'Digital Forensics', 'Python Coding', 'C Programming', 'Threat Intelligence'];
   
   //function to fetch up to four books from the Google Books API by category
-  function fetchBooks($subject, $apiKey) {
+  /* function fetchBooks($subject, $apiKey) {
       //encoding the subject for safe URL usage
       $grab = urlencode($subject);
       //building the API URL
@@ -46,6 +46,7 @@
       //returns items or empty array if not found
       return $d['items'] ?? [];
   }
+  */
   ?>
 
   <!DOCTYPE html>
