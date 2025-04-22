@@ -126,7 +126,9 @@ nav {
 .book-grid {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    overflow-x: scroll;
+    flex-wrap: nowrap;
+    width: 100%;
     gap: 50px;
     justify-content: center; 
     align-items: center;     
@@ -143,11 +145,12 @@ nav {
     border-left: 6px solid #00e6ac;
     padding: 16px;
     border-radius: 10px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
     font-weight: bold;
     margin-bottom: 28px;
     color: #ffffff;
     text-align: center;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+
 } 
