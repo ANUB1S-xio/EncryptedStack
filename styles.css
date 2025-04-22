@@ -89,6 +89,14 @@ nav {
     align-items: center;
 }
 
+.scroll {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    display: block;
+    width: 100%;
+}
+    
+
 .bookbox:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 15px rgba(0, 255, 255, 0.2); 
@@ -117,6 +125,7 @@ nav {
 
 .book-grid {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     gap: 50px;
     justify-content: center; 
