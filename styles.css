@@ -175,3 +175,32 @@ nav {
     border: 1px solid gray;
     margin-bottom: 1rem;
 }
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    padding: 2rem;
+    margin: 3rem auto;
+}
+
+.login-box {
+    align-items: center;
+    flex-direction: column;
+    width: 200px;
+    background-color: dark-gray;
+    padding: 2rem;
+    display: flex;
+    border-radius: 10px;
+}
+
+.sign-box {
+    align-items: center;
+    flex-direction: column;
+    width: 200px;
+    background-color: dark-gray;
+    padding: 2rem;
+    display: flex;
+    border-radius: 10px;
+}
