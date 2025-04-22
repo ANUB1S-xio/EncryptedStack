@@ -69,6 +69,7 @@
           <a href="#">About</a>
           <a href="#">Contact</a>
           <a href="mycart.php">Cart</a>
+          <a href="login.php">Login/Signup</a>
       </div>
   </nav>
   <main>
