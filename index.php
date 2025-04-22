@@ -9,7 +9,7 @@
   //created variable to store user-facing message regarding added items
   $message = null;        
     //google books API
-  $apiKey = 'AIzaSyAnw2qxSQySesohFWJfbZ39Hic9gkpaS8Y';
+  $apiKey = 'AIzaSyCbEelNoTTRxBJXGQOO-LflE_K-V94clrc';
 
   //handling POST requests for adding a book to the cart
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {  
