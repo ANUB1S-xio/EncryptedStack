@@ -47,7 +47,7 @@ echo "Thank you for Joining The Community!";
   <meta name="viewpoint" content= "width=device-width, initial-scale=1.0"> 
     <title>Signup with TheEncryptedStack!</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hack-font/3.3.0/web/hack.min.css">
-    <link rel="styleshee" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
