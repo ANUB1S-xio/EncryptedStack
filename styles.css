@@ -31,13 +31,6 @@ button:hover {
     color: #000000;
 }
 
-.center-wrapper {
-    padding: 40px 0;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-}
-
 .content-box {
     max-width: 600px; 
     margin: 40px auto;
@@ -128,10 +121,7 @@ nav {
     justify-content: center; 
     align-items: center;     
     text-align: center;     
-    margin: 0 auto 40px auto;
-    width: 100%;
-    max-width: 1000px;
-    
+    margin-bottom: 40px;
 }
 
 
@@ -147,4 +137,4 @@ nav {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-}
+} 
