@@ -15,7 +15,7 @@
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {  
       //get "book" from POST data, fallback to null
       $b = $_POST['book'] ?? null;        
-      if ($book) {
+      if ($b) {
           //adding the book to the cart array in the session
           $_SESSION['cart'][] = $b;        
           //redirecting user to avoid form resubmission
@@ -38,15 +38,16 @@
       //building the API URL
       $url = "https://www.googleapis.com/books/v1/volumes?q=" . $grab . "&maxResults=4&key=$apiKey";
       //making GET request (@ suppresses errors)
-      $r = @file_get_contents($url);
+      $response = @file_get_contents($url);
       //returns empty array if the request fails
-      if (!$r) return [];
+      if (!$response) return [];
       //decoding JSON into array
-      $d = json_decode($r, true);
+      $d = json_decode($response, true);
       //returns items or empty array if not found
       return $d['items'] ?? [];
   }
   ?>
+
   <!DOCTYPE html>
   <html>
       
@@ -67,7 +68,6 @@
           <a href="#">About</a>
           <a href="#">Contact</a>
           <a href="mycart.php">Cart</a>
-          <a href="/.auth/login/github">Login</a>
       </div>
   </nav>
   <main>
