@@ -1,214 +1,147 @@
+
 <?php
- //starts the session
- session_start();   
-
-
- //creating an empty cart if one doesn't exist yet
- if (!isset($_SESSION['cart'])) $_SESSION['cart'] = [];        
- 
- //handling form submission in order to add the book to the cart
- //created variable to store user-facing message regarding added items
- $m = null;        
- 
- //handling POST requests for adding a book to the cart
- if ($_SERVER['REQUEST_METHOD'] === 'POST')
-{  
-    //get "book" from POST data, fallback to null
-    $b = $_POST['book'] ?? null;        
-    if ($b) {
-         
-    //adding the book to the cart array in the session
-        $_SESSION['cart'][] = $b;        
-        //redirecting user to avoid form resubmission
-        header("Location: index.php?added=" . urlencode($b));        
-        exit;
-    }
-}
- //if redirected in URL, display a confirmation message
- if (isset($_GET['added'])) {   
-     //cleaning up message
-     $m = htmlspecialchars($_GET['added']) . ' added to cart.';
- }
- 
- //google books API
- $k = 'AIzaSyBX1edPcWsv8ed-x4gpmcLXlQ-0l4EDqNE';
- 
- //array of categories to search books, using Google Books API
- $topics = ['Ethical Hacking', 'Network Administration', 'Digital Forensics', 'Cyber Crime', 'Information Technology'];
- 
- //function to fetch up to four books from the Google Books API by category
- function apiGrab($s, $k) {
-     //encoding the subject for safe URL usage
-     $grab = urlencode($s);
-
-
-     //building the API URL
-     $l = "https://www.googleapis.com/books/v1/volumes?q=" . $grab . "&maxResults=4&key=$k";
-     //making GET request (@ suppresses errors)
-     $r = @file_get_contents($l);
-
-
-
-     //returns empty array if the request fails
-     if (!$r) return [];
-     //decoding JSON into array
-     $d = json_decode($r, true);
-     //returns items or empty array if not found
-     return $d['items'] ?? [];
- } ?>
-
- <!-- html front end --> 
- <!DOCTYPE html>
- <html>
-
- <body>
- <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="xUA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1,0">
-     <!--creating title of the webpage-->
-     <title>The Encrypted Stack - Cybersecurity Bookstore</title>
-     <!--linking external styles sheet (CSS) for personalization-->
-     <link rel="stylesheet" href="styles.css">
- </head>
-
-
-<!-- project header -->
-<header>
-    <!-- interactive logo title -->
-    <a href='index.php' class="nav-logo">TheEncryptedStack</a>
-
-        <!-- nav bar --> 
-        <div class="nav">
-            <a href="index.php">Home</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-            <a href="mycart.php" class="cart-logo"><img src="logos/shopping-cart.svg" alt="cart logo" class="cart"></a>
-            <a href="auth.php">Login/Signup</a>
-        </div>
-
-        <!-- search feature -->
-    <form action="" class="book-search"> 
-        <label for="s" class=""></label>
-        <input type="query" name="" placeholder="Something more specific?"></form>
-
-</header>
-
-
- <!-- sub title for the web page -->
-<section id="hero" class="hero-container">
-    <div class="hero-cont">
-        <h1>Intelligence = Cybersecurity.</h1>
-        <p>"If you think you know-it-all all about cybersecurity, this discipline was probably ill-explained to you..." -Stephane Nappo</p>
-    </div>
-</section>
-
- <main>
-     <!--add message -->
-     <?php 
-        if ($m): 
-     ?>
-
-     <!--display message indicating book was added to cart-->
-         <div class="added-message">
-            <?= $m ?></div>
-     <?php 
-        endif; 
-     ?>
- 
-     <h1>Find Your Books Here!</h1>
- 
-     <!--form to add static book to the cart-->
-     <form class="test" method="POST">
-        <!-- simple test --> 
-         <h3>Book Test 1</h3>
-         <input name="book" type="hidden" value="Test-Book">
-
-         <p>test $0.01</p>
-         <!--adding a submit button-->
-         <button type="buy">$0.01</button>
-     </form>
- 
-    <!--looping through all categories to fetch and showcase the books-->
-    <?php 
-        foreach ($topics as $sub): 
-    ?>
-         <?php
-         //fetch boooks for the selected/current category
-         $b = fetchBooks($sub, $k);
-         //only continues if the book is found
-         if (!empty($b)):
-         ?>
-            <h2><?= htmlspecialchars($sub) ?></h2>
-            <!--creating grid container for book cards-->
-            <div class="book-container">
-                <!--looping through each book-->
-                <?php foreach ($b as $bo):
-                    //shortcut to volumeInfo array
-                    $in = $bo['volumeInfo'];
-                    //get book title 
-                    $t = $in['title'];
-                    //getting description
-                    $d = $in['description'];
-                    //get image URL or fallback to the placeholder image
-
-                    $i = $in['imageLinks']['small'] ??
-                            $in['imageLinks']['medium'] ??
-                            $in['imageLinks']['large'] ??
-                            $in['imageLinks']['thumbnail'] ??
-                            'https://via.placeholder.com/128x195?text=No+Image';
-
-                     //link to the book's info page
-                     $l = $in['infoLink'] ?? 'index.php';
-                 ?>
- 
-                     <!--rendering the individual book card-->
-                     <div class="block">
-                         <!--adding the book cover image-->
-                         <img src="<?= htmlspecialchars($i) ?>" alt="<?= htmlspecialchars($t) ?>">
-                         <!--adding the book title-->
-                         <h3>
-                            <?= htmlspecialchars($t) ?>
-                        </h3>
-                         <!--adding the display rating-->
-                         <!--adding a shortened description of the book-->
-                         <p>
-                            <?= htmlspecialchars(substr($d, 0, 50)) ?>...</p>
-                         <!--adding a link to the book's info-->
-                         <a href="<?= htmlspecialchars($l) ?>" target="_blank"><button type="button">Buy</button></a>
-                     </div>
-                 <?php endforeach; ?>
-             </div>
-         <?php endif; ?>
-     <?php endforeach; ?>
- </main>
-
- <!-- simple contact form page -->
-<section class="contact" id="c">
-    <h2 class="contact-title">Have Questions? Please Contact Us!</h2>
-    <form autocomplete="off" id="form-comp">
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="text" name="subject" placeholder="Subject"required>
-        <textarea>
-            <input type="message" placeholder="Message" required>
-        </textarea>
-
-        <button class="button-sub" type="submit">Send</button>
-    </form>
-</section>
-
-<footer class="footer" id="foot">
-    <div class="col">
-        <div class="contacts-foot" id="contact-f">
-            <p id="contact-email" class="contact-e">Email: tannerlancaster@my.unt.edu</p>
-            <p id="phone" class="phone-num">Number: 123.123.1234</p>
-            <p id="contact-email" class="contact-e">Email: williamwoods@my.unt.edu</p>
-            <p id="phone" class="phone-num">Number: 123.123.1234</p>
-            <p id="contact-email" class="contact-e">Email: sheldonballard@my.unt.edu</p>
-            <p id="phone" class="phone-num">Number: 123.123.1234</p>
-        </div>
-    </div>
-</footer>
-
- </body>
- </html>
+  //starts the session
+  session_start();        
+  //creating an empty cart if one doesn't exist yet
+  if (!isset($_SESSION['cart'])) $_SESSION['cart'] = [];        
+  
+  //handling form submission in order to add the book to the cart
+  //created variable to store user-facing message regarding added items
+  $addedMessage = null;        
+  
+  //handling POST requests for adding a book to the cart
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {  
+      //get "book" from POST data, fallback to null
+      $book = $_POST['book'] ?? null;        
+      if ($book) {
+          //adding the book to the cart array in the session
+          $_SESSION['cart'][] = $book;        
+          //redirecting user to avoid form resubmission
+          header("Location: index.php?added=" . urlencode($book));        
+          exit;
+      }
+  }
+  //if redirected in URL, display a confirmation message
+  if (isset($_GET['added'])) {   
+      //cleaning up message
+      $addedMessage = htmlspecialchars($_GET['added']) . ' added to cart.';
+  }
+  
+  //google books API
+  $apiKey = 'AIzaSyBX1edPcWsv8ed-x4gpmcLXlQ-0l4EDqNE';
+  
+  //array of categories to search books, using Google Books API
+  $subjects = ['Ethical Hacking', 'Network Administration', 'Digital Forensics', 'Cyber Crime', 'Information Technology'];
+  
+  //function to fetch up to four books from the Google Books API by category
+  function fetchBooks($subject, $apiKey) {
+      //encoding the subject for safe URL usage
+      $query = urlencode($subject);
+      //building the API URL
+      $url = "https://www.googleapis.com/books/v1/volumes?q=" . $query . "&maxResults=4&key=$apiKey";
+      //making GET request (@ suppresses errors)
+      $response = @file_get_contents($url);
+      //returns empty array if the request fails
+      if (!$response) return [];
+      //decoding JSON into array
+      $data = json_decode($response, true);
+      //returns items or empty array if not found
+      return $data['items'] ?? [];
+  }
+  ?>
+  <!DOCTYPE html>
+  <html>
+      
+  <head>
+      <!--creating title of the webpage-->
+      <title>Sec-Reads Cyber Bookstore</title>
+      <!--linking external styles sheet (CSS) for personalization-->
+      <link rel="stylesheet" href="styles.css">
+  </head>
+      
+  <body>
+  <nav>
+      <!--importing website logo-->
+      <div class="logo">TheEncryptedStack</div>
+      <!--navigation menu-->
+      <div class="nav-links">
+          <a href="index.php">Home</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+          <a href="mycart.php">Cart</a>
+      </div>
+  </nav>
+  <main>
+      <!--shows book added message if available/applicable-->
+      <?php if ($addedMessage): ?>
+      <!--display message indicating book was added to cart-->
+          <div class="added-message"><?= $addedMessage ?></div>
+      <?php endif; ?>
+  
+      <h1>Explore Cybersecurity Books</h1>
+  
+      <!--form to add static book to the cart-->
+      <form method="POST" class="book-card">
+          <h3>The Cyber Dummy Guide</h3>
+          <!--hidden field to pass the book name-->
+          <input type="hidden" name="book" value="The Cyber Dummy Guide">
+          <!--description of a static book-->
+          <p>Used to test cart functionality with $0.01 purchase.</p>
+          <!--adding a submit button-->
+          <button type="submit">Add to Cart - $0.01</button>
+      </form>
+  
+      <!--looping through all categories to fetch and showcase the books-->
+      <?php foreach ($subjects as $s): ?>
+          <?php
+          //fetch boooks for the selected/current category
+          $books = fetchBooks($s, $apiKey);
+          //only continues if the book is found
+          if (!empty($books)):
+          ?>
+              <h2><?= htmlspecialchars($s) ?></h2>
+              <!--creating grid container for book cards-->
+              <div class="book-grid">
+                  <!--looping through each book-->
+                  <?php foreach ($books as $bookItem):
+                      //shortcut to volumeInfo array
+                      $info = $bookItem['volumeInfo'];
+                      //get book title or else it is defaulted to "untitled"
+                      $title = $info['title'] ?? 'Untitled';
+                      //getting description or else defaulted to an empty string
+                      $desc = $info['description'] ?? '';
+                      //get image URL or fallback to the placeholder image
+                      $img = $info['imageLinks']['small'] ??
+                             $info['imageLinks']['medium'] ??
+                             $info['imageLinks']['large'] ??
+                             $info['imageLinks']['thumbnail'] ??
+                             'https://via.placeholder.com/128x195?text=No+Image';
+                      //link to the book's info page
+                      $link = $info['infoLink'] ?? '#';
+                      //getting the book's rating or else defaulted to "N/A"
+                      $rating = $info['averageRating'] ?? 'N/A';
+                  ?>
+  
+                      <!--rendering the individual book card-->
+                      <div class="book-card">
+                          <!--adding the book cover image-->
+                          <img src="<?= htmlspecialchars($img) ?>" alt="<?= htmlspecialchars($title) ?>">
+                          <!--adding the book title-->
+                          <h3><?= htmlspecialchars($title) ?></h3>
+                          <!--adding the display rating-->
+                          <p>Rating: <?= $rating ?></p>
+                          <!--adding a shortened description of the book-->
+                          <p><?= htmlspecialchars(substr($desc, 0, 100)) ?>...</p>
+                          <!--adding a link to the book's info-->
+                          <a href="<?= htmlspecialchars($link) ?>" target="_blank">
+                              <!--adding a button for the book's full info-->
+                              <button type="button">View Book</button>
+                          </a>
+                      </div>
+                  <?php endforeach; ?>
+              </div>
+          <?php endif; ?>
+      <?php endforeach; ?>
+  </main>
+  </body>
+  </html>
