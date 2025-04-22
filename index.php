@@ -36,13 +36,14 @@
       $us = $_POST['userlog'];
       $pass = $_POST['userpass'];
 
+        //check if users.json exists
       if (file_exists("users.json")) {
         $u = json_decode(file_get_contents("users.json"), true);
       }
       else {
         $u == [];
       }
-
+  //iterate through the array and determine successful login
       foreach ($u as $i) {
         if ($i['username'] === $us && password_verify($pass, $i['password'])) {
           $_SESSION['user'] = $i['username'];
