@@ -123,7 +123,7 @@
           <a href="#About">About</a>
           <a href="#main-footer">Contact</a>
           <a href="mycart.php">Cart</a>
-          <a href="Login">Login/Signup</a>
+          <a href="login-container">Login/Signup</a>
       </div>
   </nav>
   <main>
