@@ -1,6 +1,8 @@
 <?php
  //starts the session
- session_start();        
+ session_start();   
+
+
  //creating an empty cart if one doesn't exist yet
  if (!isset($_SESSION['cart'])) $_SESSION['cart'] = [];        
  
@@ -113,8 +115,6 @@
                      $img = $info['imageLinks']['small'] ??
                             $info['imageLinks']['medium'] ??
                             $info['imageLinks']['large'] ??
-                            $info['imageLinks']['thumbnail'] ??
-                            'https://via.placeholder.com/128x195?text=No+Image';
                      //link to the book's info page
                      $link = $info['infoLink'] ?? '#';
                      //getting the book's rating or else defaulted to "N/A"
