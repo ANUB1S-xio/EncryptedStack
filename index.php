@@ -29,14 +29,14 @@
       $message = htmlspecialchars($_GET['added']) . ' added to cart.';
   }
   //array of categories to search books, using Google Books API
-  $subjects = ['Ethical Hacking', 'Network Administration', 'Digital Forensics', 'Cyber Crime', 'Information Technology', 'Penetration Testing', 'Cryptography', 'C++', 'Python Coding', 'Systems Administration', 'Data Privacy', 'Phishing', 'Cloud Security', 'C Programming', 'Insider Threat', 'Threat Intelligence', 'IoT Security'];
+  $subjects = ['Ethical Hacking', 'Network Administration', 'Digital Forensics', 'Cyber Crime', 'Penetration Testing', 'Cryptography','Python Coding', 'Systems Administration', 'Phishing', 'Cloud Security', 'C Programming', 'Insider Threat', 'Threat Intelligence'];
   
   //function to fetch up to four books from the Google Books API by category
   function fetchBooks($subject, $apiKey) {
       //encoding the subject for safe URL usage
       $grab = urlencode($subject);
       //building the API URL
-      $url = "https://www.googleapis.com/books/v1/volumes?q=" . $grab . "&maxResults=30&key=$apiKey";
+      $url = "https://www.googleapis.com/books/v1/volumes?q=" . $grab . "&maxResults=12&key=$apiKey";
       //making GET request (@ suppresses errors)
       $response = @file_get_contents($url);
       //returns empty array if the request fails
