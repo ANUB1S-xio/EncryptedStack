@@ -58,8 +58,8 @@ echo "Thank you for Joining The Community!";
       <!--navigation menu-->
       <div class="nav-links">
           <a href="index.php">Home</a>
-          <a href="#">About</a>
-          <a href="#">Contact</a>
+          <a href="#About">About</a>
+          <a href="#c">Contact</a>
           <a href="mycart.php">Cart</a>
           <a href="login.php">Login/Signup</a>
       </div>
