@@ -56,7 +56,20 @@ echo "Thank you for Joining The Community!";
     <link rel="stylesheet" href="styles.css">
 </head> 
 <body>
- 
+
+   <nav>
+      <!--importing website logo-->
+      <div class="logo">TheEncryptedStack</div>
+      <!--navigation menu-->
+      <div class="nav-links">
+          <a href="index.php">Home</a>
+          <a href="#About">About</a>
+          <a href="#c">Contact</a>
+          <a href="mycart.php">Cart</a>
+          <a href="login.php">Login/Signup</a>
+      </div>
+  </nav>
+  
   <div class="form-box">
     <div class="auth-wrap">
       <!-- sign up form -->
