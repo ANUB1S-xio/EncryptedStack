@@ -14,12 +14,12 @@
   //handling POST requests for adding a book to the cart
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {  
       //get "book" from POST data, fallback to null
-      $b = $_POST['book'] ?? null;        
+      $book = $_POST['book'] ?? null;        
       if ($b) {
           //adding the book to the cart array in the session
-          $_SESSION['cart'][] = $b;        
+          $_SESSION['cart'][] = $book;        
           //redirecting user to avoid form resubmission
-          header("Location: index.php?added=" . urlencode($b));        
+          header("Location: index.php?added=" . urlencode($book));        
           exit;
       }
   }
