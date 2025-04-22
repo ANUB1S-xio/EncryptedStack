@@ -87,7 +87,6 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: none;
 }
 
 .book-card:hover {
