@@ -93,6 +93,7 @@ nav {
     overflow-x: auto;
     overflow-y: hidden;
     display: flex;
+    padding-left: 0;
     white-space: wrap;
     scroll-behavior: smooth;
 }
