@@ -15,7 +15,7 @@
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {  
       //get "book" from POST data, fallback to null
       $book = $_POST['book'] ?? null;        
-      if ($b) {
+      if ($book) {
           //adding the book to the cart array in the session
           $_SESSION['cart'][] = $book;        
           //redirecting user to avoid form resubmission
