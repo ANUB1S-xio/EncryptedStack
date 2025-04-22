@@ -1,6 +1,6 @@
 body {
     font-family: 'Orbitron', sans-serif;
-    background: linear-gradient(125deg, #d1e2e9, #203a43, #2c5364); 
+    background-color: #1e1e1e;; 
     color: #d3cfcf; 
     margin: 0;
     padding: 0;
@@ -118,10 +118,13 @@ nav {
 .book-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 50px; 
-    justify-content: center;
+    gap: 50px;
+    justify-content: center; 
+    align-items: center;     
+    text-align: center;     
     margin-bottom: 40px;
 }
+
 
 .added-message {
     background: rgba(0, 255, 200, 0.25);
