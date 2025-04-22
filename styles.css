@@ -28,7 +28,7 @@ button:hover {
 .logo {
     font-size: 1.75rem;
     font-weight: bold;
-    color: #ffffff;
+    color: #000000;
 }
 
 .content-box {
@@ -48,7 +48,7 @@ main {
 }
 
 .nav-links a {
-    color: #ffffff;
+    color: #000000;
     text-decoration: none;
     margin-left: 20px;
     font-weight: 500;
@@ -82,7 +82,7 @@ h1, h2 {
 }
 
 nav {
-    background-color: 000000; 
+    background-color: ffffff; 
     padding: 18px 30px;
     display: flex;
     justify-content: space-between;
