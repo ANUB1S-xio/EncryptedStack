@@ -1,5 +1,38 @@
 
 <?php
+  if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["signbutton"])) {
+
+      //declare user, pass, and confirm
+    $us = $_POST['signuser'];
+    $pass = $_POST['signpass'];
+
+    $verify = $_POST['verify'];
+
+      // check if pass exists
+    if ($pass != $verify) {
+      echo "Username or Password do not match or exist. Please try again.";
+      exit;
+    }
+
+      //obfuscate by hashing
+    $obf = password_hash($pass, PASSWORD_DEFAULT);
+
+      //check if users.json exists
+    if (file_exists("users.json")) {
+      $u = json_decode(file_get_contents("users.json"), true);
+    }
+    else {
+      $u == [];
+    }
+
+      //set ip with 4 digit randomness and set dictionary
+    $id_num = random_int(10000, 9999);
+    $u[] = ["id" => $id_num, "username" => $us, "password" => $obf];
+
+    file_put_contents("users.json", json_encode($u, JSON_PRETTY_PRINT));
+    echo "Account Created. Thank you for choosing The Encrypted Stack!";
+  }
+
   //starts the session
   session_start();        
   //creating an empty cart if one doesn't exist yet
@@ -240,21 +273,25 @@
       <?php endforeach; ?>
   </main>
 
-<div class="form-box" id="login">
-    <div class="auth-wrap">
-      <!-- sign up form -->
-      <form method="POST" action="auth.php">
-        <div class="input-group">
-          <input type="text" name="username" placeholder equals="Create Username" required>
-        </div>
-        <div class="input-group">
-          <input type="password" name="password" placeholder equals="Create Password" required>
-        </div>
+  <div class="login-container">
+    <div class="login-box" id="log">
+      <h2>Login</h2>
+      <form method="POST" action="">
+        <input type="text" name="userlog" placeholder equals="Create Username" required>
+        <input type="password" name="passlog" placeholder equals="Create Password" required>
         <button type="submit" name="submit">Login</button>
       </form>
     </div>
-</div>
-
+    <div class="sign-box" id="sign">
+      <h2>Sign Up!</h2>
+      <form method="POST" action="">
+        <input type="text" name="signuser" placeholder equals="Create Username" required>
+        <input type="password" name="signpass" placeholder equals="Create Password" required>
+        <input type="password" name="verify" placeholder equals="Verify Password" required>
+        <button type="submit" name="submit">Sign Up</button>
+      </form>
+    </div>
+  </div>
 
 <!-- Contact Form -->
  <div class="contact-wrapper">
