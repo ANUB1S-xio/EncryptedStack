@@ -108,11 +108,10 @@ nav {
     border: 1px solid rgba(219, 114, 123, 0.4);
     border-radius: 12px;
     padding: 18px;
-    min-width: 214px;
+    width: 214px;
     display: inline-block;
-    margin-right: 12px;
     text-align: center;
-    box-shadow: 0 2px 15px rgba(142, 138, 192, 0.15);
+    box-shadow: 0 2px 15px rgba(140, 138, 192, 0.15);
     transition: transform 0.25s, box-shadow 0.25s;
 }
 
