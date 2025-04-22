@@ -255,7 +255,7 @@
     </div>
 </div>
 
-<div class="contact-container">
+
 <!-- Contact Form -->
  <div class="contact-wrapper">
   <section class="contact" id="c">
