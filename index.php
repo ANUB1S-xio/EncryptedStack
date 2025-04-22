@@ -297,16 +297,21 @@
     <div class="login-box" id="log">
       <h2>Login</h2>
       <form method="POST" action="">
-        <input type="text" name="userlog" placeholder equals="Create Username" required>
-        <input type="password" name="passlog" placeholder equals="Create Password" required>
+        <label for="userlog">Username</label>
+        <input type="text" name="userlog" placeholder equals="enter Username" required>
+        <label for="passlog">Password</label>
+        <input type="password" name="passlog" placeholder equals="enter Password" required>
         <button type="submit" name="logbutton">Login</button>
       </form>
     </div>
     <div class="sign-box" id="sign">
       <h2>Sign Up!</h2>
       <form method="POST" action="">
+        <label for="signuser">Create Username</label>
         <input type="text" name="signuser" placeholder equals="Create Username" required>
+        <label for="signpass">Create Password</label>
         <input type="password" name="signpass" placeholder equals="Create Password" required>
+        <label for="verify">confirm Password</label>
         <input type="password" name="verify" placeholder equals="Verify Password" required>
         <button type="submit" name="signbutton">Sign Up</button>
       </form>
