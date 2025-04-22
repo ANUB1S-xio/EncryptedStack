@@ -1,4 +1,7 @@
 body {
+    <!-- Sets the tone for the website, creating a dark gray theme. -->
+
+    <!-- Font family goes well with the site -->
     font-family: 'Hack', monospace;
     background-color: #1e1e1e;; 
     color: #d3cfcf; 
@@ -7,6 +10,7 @@ body {
 }
 
 button {
+    <!-- Customization for the buttons so they match the theme -->
     background: linear-gradient(to right, #00e6ac, #00ffff);
     color: #000;
     padding: 13px 22px;
@@ -21,6 +25,7 @@ button {
 }
 
 button:hover {
+    <!-- Change appearance of button when mouse goes over it -->
     box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
     transform: scale(1.05); 
 }
@@ -58,11 +63,14 @@ main {
 }
 
 .nav-links a:hover::after {
+    <!-- Customization for when you put the mouse over a link -->
+
     transform: scaleX(1);
     transform-origin: left;
 }
 
 .nav-links a::after {
+    
     content: '';
     position: absolute;
     width: 100%;
@@ -76,6 +84,8 @@ main {
 }
 
 h1, h2 {
+    <!-- Customization for the headers -->
+
     color: #ffffff;
     text-align: center;
     margin-bottom: 16px;
@@ -90,6 +100,8 @@ nav {
 }
 
 .scroll {
+    <!-- Makes sure you can navigate around the website properly -->
+
     overflow-x: auto;
     overflow-y: hidden;
     display: flex;
@@ -105,6 +117,8 @@ nav {
 }
 
 .bookbox img {
+    <!-- customization for the images of the books -->
+
     width: 150px;
     height: 220px;
     object-fit: cover;
@@ -114,6 +128,8 @@ nav {
 }
 
 .bookbox {
+    
+    <!-- This customization will make sure all the books are displayed the same size with the same style -->
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(219, 114, 123, 0.4);
     border-radius: 12px;
@@ -155,6 +171,7 @@ nav {
 } 
 
 .form-box {
+
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -196,6 +213,7 @@ nav {
 }
 
 .sign-box {
+    <!-- This makes sure the sign in box appears properly. -->
     align-items: center;
     flex-direction: column;
     width: 200px;
