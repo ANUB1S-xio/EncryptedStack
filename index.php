@@ -1,6 +1,6 @@
 
 <?php
-  if ($_SERVER["REQUEST_METHOD"] === "POST") {
+  /* if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (isset($_POST["signbutton"])) {
 
         //declare user, pass, and confirm
@@ -52,7 +52,7 @@
         echo "Login Failed. Invalid Username or Password";
       }
     }
-
+*/
   //starts the session
   session_start();        
   //creating an empty cart if one doesn't exist yet
@@ -296,7 +296,7 @@
   <div class="login-container">
     <div class="login-box" id="log">
       <h2>Login</h2>
-      <form method="POST" action="index.php">
+      <form method="POST" action="">
         <label for="userlog">Username</label>
         <input type="text" name="userlog" placeholder equals="enter Username" required>
         <label for="passlog">Password</label>
@@ -306,7 +306,7 @@
     </div>
     <div class="sign-box" id="sign">
       <h2>Sign Up!</h2>
-      <form method="POST" action="index.php">
+      <form method="POST" action="">
         <label for="signuser">Create Username</label>
         <input type="text" name="signuser" placeholder equals="Create Username" required>
         <label for="signpass">Create Password</label>
