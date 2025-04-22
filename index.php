@@ -36,7 +36,7 @@
       //encoding the subject for safe URL usage
       $grab = urlencode($subject);
       //building the API URL
-      $url = "https://www.googleapis.com/books/v1/volumes?q=" . $grab . "&maxResults=15&key=$apiKey";
+      $url = "https://www.googleapis.com/books/v1/volumes?q=" . $grab . "&maxResults=30&key=$apiKey";
       //making GET request (@ suppresses errors)
       $response = @file_get_contents($url);
       //returns empty array if the request fails
