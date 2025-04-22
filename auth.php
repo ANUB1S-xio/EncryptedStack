@@ -61,7 +61,7 @@ echo "Thank you for Joining The Community!";
   <meta name="viewpoint" content= "width=device-width, initial-scale=1.0"> 
     <title>Signup with TheEncryptedStack!</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hack-font/3.3.0/web/hack.min.css">
-    <link rel="styleshee" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -74,7 +74,7 @@ echo "Thank you for Joining The Community!";
           <a href="#About">About</a>
           <a href="#c">Contact</a>
           <a href="mycart.php">Cart</a>
-          <a href="login.php">Login/Signup</a>
+          <a href="auth.php">Login/Signup</a>
       </div>
   </nav>
 <div class="form-box">
