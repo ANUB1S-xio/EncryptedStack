@@ -197,7 +197,7 @@
           ?>
               <h2><?= htmlspecialchars($s) ?></h2>
               <!--creating grid container for book cards-->
-              <div class="bookbox">
+              <div class="book-grid">
                   <!--looping through each book-->
                   <?php foreach ($books as $bookItem):
                       //shortcut to volumeInfo array
