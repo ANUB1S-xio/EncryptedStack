@@ -77,7 +77,103 @@
           <div class="added-message"><?= $message ?></div>
       <?php endif; ?>
   
-      <h1>Explore Cybersecurity Books</h1>
+      
+<!-- About us section -->
+
+    <div class="about-container">
+  <section class="about-section" id="about">
+    <div class="about-inner">
+      <div class="about-text">
+        <h2>About Us</h2>
+        <p>
+          We believe that knowing how to look after yourself and others online shouldn't be the reserve of experts or those with expensive training. So, we offer a wide selection of well researched cybersecurity books that condense complicated topics into helpful, entry level material; perfect for self learners, students, and aspiring professionals alike. Our website aims to deliver excellent cybersecurity knowledge to whoever wants to learn it.
+        </p>
+        <p>
+          Our goal is to bridge the knowledge gap through providing accessible and reliable resources empowering people to take control of their own cybersecurity education. Whether you're researching basics or diving into advanced topics, our library is intended to support your journey each step of the way . While dangers on the internet grow, so does the requirement for cyber literacy and awareness.
+        </p>
+      </div>
+      <div class="about-image">
+        <img src="https://www.elewayte.com/public/uploads/courses/dashboard/209874360464aac927d0187.png" alt="Team working together">
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .about-container {
+      display: flex;
+      justify-content: center;
+      padding: 2rem 1rem;
+      margin-top: 2rem;
+    }
+
+    .about-section {
+      background: #444;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      max-width: 1000px;
+      width: 100%;
+      padding: 2rem;
+      color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+
+    .about-inner {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .about-text h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+
+    .about-text p {
+      font-size: 1.1rem;
+      color: #ccc;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .about-image {
+      flex: 1;
+      min-width: 280px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .about-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+      .about-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-image {
+        margin-top: 1.5rem;
+      }
+    }
+  </style>
+</div>
+
+    
+    
+    
+    <h1>Explore Cybersecurity Books</h1>
   
       <!--form to add static book to the cart-->
       <form method="POST" class="book-card">
