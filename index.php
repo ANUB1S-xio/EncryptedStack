@@ -1,4 +1,3 @@
-
 <?php
  //starts the session
  session_start();   
@@ -9,134 +8,194 @@
  
  //handling form submission in order to add the book to the cart
  //created variable to store user-facing message regarding added items
- $addedMessage = null;        
+ $m = null;        
  
  //handling POST requests for adding a book to the cart
- if ($_SERVER['REQUEST_METHOD'] === 'POST') {  
-     //get "book" from POST data, fallback to null
-     $book = $_POST['book'] ?? null;        
-     if ($book) {
-         //adding the book to the cart array in the session
-         $_SESSION['cart'][] = $book;        
-         //redirecting user to avoid form resubmission
-         header("Location: index.php?added=" . urlencode($book));        
-         exit;
-     }
- }
+ if ($_SERVER['REQUEST_METHOD'] === 'POST')
+{  
+    //get "book" from POST data, fallback to null
+    $b = $_POST['book'] ?? null;        
+    if ($b) {
+         
+    //adding the book to the cart array in the session
+        $_SESSION['cart'][] = $b;        
+        //redirecting user to avoid form resubmission
+        header("Location: index.php?added=" . urlencode($b));        
+        exit;
+    }
+}
  //if redirected in URL, display a confirmation message
  if (isset($_GET['added'])) {   
      //cleaning up message
-     $addedMessage = htmlspecialchars($_GET['added']) . ' added to cart.';
+     $m = htmlspecialchars($_GET['added']) . ' added to cart.';
  }
  
  //google books API
- $apiKey = 'AIzaSyBX1edPcWsv8ed-x4gpmcLXlQ-0l4EDqNE';
+ $k = 'AIzaSyBX1edPcWsv8ed-x4gpmcLXlQ-0l4EDqNE';
  
  //array of categories to search books, using Google Books API
- $subjects = ['Ethical Hacking', 'Network Administration', 'Digital Forensics', 'Cyber Crime', 'Information Technology'];
+ $topics = ['Ethical Hacking', 'Network Administration', 'Digital Forensics', 'Cyber Crime', 'Information Technology'];
  
  //function to fetch up to four books from the Google Books API by category
- function fetchBooks($subject, $apiKey) {
+ function apiGrab($s, $k) {
      //encoding the subject for safe URL usage
-     $query = urlencode($subject);
+     $grab = urlencode($s);
+
+
      //building the API URL
-     $url = "https://www.googleapis.com/books/v1/volumes?q=" . $query . "&maxResults=4&key=$apiKey";
+     $l = "https://www.googleapis.com/books/v1/volumes?q=" . $grab . "&maxResults=4&key=$k";
      //making GET request (@ suppresses errors)
-     $response = @file_get_contents($url);
+     $r = @file_get_contents($l);
+
+
+
      //returns empty array if the request fails
-     if (!$response) return [];
+     if (!$r) return [];
      //decoding JSON into array
-     $data = json_decode($response, true);
+     $d = json_decode($r, true);
      //returns items or empty array if not found
-     return $data['items'] ?? [];
- }
- ?>
+     return $d['items'] ?? [];
+ } ?>
+
+ <!-- html front end --> 
  <!DOCTYPE html>
  <html>
-     
+
+ <body>
  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="xUA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,0">
      <!--creating title of the webpage-->
-     <title>Sec-Reads Cyber Bookstore</title>
+     <title>The Encrypted Stack - Cybersecurity Bookstore</title>
      <!--linking external styles sheet (CSS) for personalization-->
      <link rel="stylesheet" href="styles.css">
  </head>
-     
- <body>
- <nav>
-     <!--importing website logo-->
-     <div class="logo">TheEncryptedStack</div>
-     <!--navigation menu-->
-     <div class="nav-links">
-         <a href="index.php">Home</a>
-         <a href="#">About</a>
-         <a href="#">Contact</a>
-         <a href="mycart.php">Cart</a>
-     </div>
- </nav>
+
+
+<!-- project header -->
+<header>
+    <!-- interactive logo title -->
+    <a href='index.php' class="nav-logo">TheEncryptedStack</a>
+
+        <!-- nav bar --> 
+        <div class="nav">
+            <a href="index.php">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="mycart.php" class="cart-logo"><img src="logos/shopping-cart.svg" alt="cart logo" class="cart"></a>
+            <a href="auth.php">Login/Signup</a>
+        </div>
+
+        <!-- search feature -->
+    <form action="" class="book-search"> 
+        <label for="s" class=""></label>
+        <input type="query" name="" placeholder="Something more specific?"></form>
+
+</header>
+
+
+ <!-- sub title for the web page -->
+<section id="hero" class="hero-container">
+    <div class="hero-cont">
+        <h1>Intelligence = Cybersecurity.</h1>
+        <p>"If you think you know-it-all all about cybersecurity, this discipline was probably ill-explained to you..." -Stephane Nappo</p>
+    </div>
+</section>
+
  <main>
-     <!--shows book added message if available/applicable-->
-     <?php if ($addedMessage): ?>
+     <!--add message -->
+     <?php 
+        if ($m): 
+     ?>
+
      <!--display message indicating book was added to cart-->
-         <div class="added-message"><?= $addedMessage ?></div>
-     <?php endif; ?>
+         <div class="added-message">
+            <?= $m ?></div>
+     <?php 
+        endif; 
+     ?>
  
-     <h1>Explore Cybersecurity Books</h1>
+     <h1>Find Your Books Here!</h1>
  
      <!--form to add static book to the cart-->
-     <form method="POST" class="book-card">
-         <h3>The Cyber Dummy Guide</h3>
-         <!--hidden field to pass the book name-->
-         <input type="hidden" name="book" value="Test-Book">
-         <!--description of a static book-->
+     <form class="test" method="POST">
+        <!-- simple test --> 
+         <h3>Book Test 1</h3>
+         <input name="book" type="hidden" value="Test-Book">
+
          <p>test $0.01</p>
          <!--adding a submit button-->
-         <button type="submit">Add to Cart - $0.01</button>
+         <button type="buy">$0.01</button>
+     </form>
+     <!--form to add static book to the cart-->
+     <form class="test" method="POST">
+        <!-- simple test --> 
+         <h3>Book Test 2</h3>
+         <input name="book" type="hidden" value="Test-Book">
+
+         <p>test $0.01</p>
+         <!--adding a submit button-->
+         <button type="buy">$0.01</button>
+     </form>
+     <!--form to add static book to the cart-->
+     <form class="test" method="POST">
+        <!-- simple test --> 
+         <h3>Book Test 3</h3>
+         <input name="book" type="hidden" value="Test-Book">
+
+         <p>test $0.01</p>
+         <!--adding a submit button-->
+         <button type="buy">$0.01</button>
      </form>
  
-     <!--looping through all categories to fetch and showcase the books-->
-     <?php foreach ($subjects as $s): ?>
+    <!--looping through all categories to fetch and showcase the books-->
+    <?php 
+        foreach ($topics as $sub): 
+    ?>
          <?php
          //fetch boooks for the selected/current category
-         $books = fetchBooks($s, $apiKey);
+         $b = fetchBooks($sub, $k);
          //only continues if the book is found
-         if (!empty($books)):
+         if (!empty($b)):
          ?>
-             <h2><?= htmlspecialchars($s) ?></h2>
-             <!--creating grid container for book cards-->
-             <div class="book-grid">
-                 <!--looping through each book-->
-                 <?php foreach ($books as $bookItem):
-                     //shortcut to volumeInfo array
-                     $info = $bookItem['volumeInfo'];
-                     //get book title or else it is defaulted to "untitled"
-                     $title = $info['title'] ?? 'Untitled';
-                     //getting description or else defaulted to an empty string
-                     $desc = $info['description'] ?? '';
-                     //get image URL or fallback to the placeholder image
-                     $img = $info['imageLinks']['small'] ??
-                            $info['imageLinks']['medium'] ??
-                            $info['imageLinks']['large'] ??
+            <h2><?= htmlspecialchars($sub) ?></h2>
+            <!--creating grid container for book cards-->
+            <div class="book-container">
+                <!--looping through each book-->
+                <?php foreach ($b as $bo):
+                    //shortcut to volumeInfo array
+                    $in = $bo['volumeInfo'];
+                    //get book title 
+                    $t = $in['title'];
+                    //getting description
+                    $d = $in['description'];
+                    //get image URL or fallback to the placeholder image
+
+                    $i = $in['imageLinks']['small'] ??
+                            $in['imageLinks']['medium'] ??
+                            $in['imageLinks']['large'] ??
+                            $in['imageLinks']['thumbnail'] ??
+                            'https://via.placeholder.com/128x195?text=No+Image';
+
                      //link to the book's info page
-                     $link = $info['infoLink'] ?? '#';
-                     //getting the book's rating or else defaulted to "N/A"
-                     $rating = $info['averageRating'] ?? 'N/A';
+                     $l = $in['infoLink'] ?? 'index.php';
                  ?>
  
                      <!--rendering the individual book card-->
-                     <div class="book-card">
+                     <div class="block">
                          <!--adding the book cover image-->
-                         <img src="<?= htmlspecialchars($img) ?>" alt="<?= htmlspecialchars($title) ?>">
+                         <img src="<?= htmlspecialchars($i) ?>" alt="<?= htmlspecialchars($t) ?>">
                          <!--adding the book title-->
-                         <h3><?= htmlspecialchars($title) ?></h3>
+                         <h3>
+                            <?= htmlspecialchars($t) ?>
+                        </h3>
                          <!--adding the display rating-->
-                         <p>Rating: <?= $rating ?></p>
                          <!--adding a shortened description of the book-->
-                         <p><?= htmlspecialchars(substr($desc, 0, 100)) ?>...</p>
+                         <p>
+                            <?= htmlspecialchars(substr($d, 0, 50)) ?>...</p>
                          <!--adding a link to the book's info-->
-                         <a href="<?= htmlspecialchars($link) ?>" target="_blank">
-                             <!--adding a button for the book's full info-->
-                             <button type="button">View Book</button>
-                         </a>
+                         <a href="<?= htmlspecialchars($l) ?>" target="_blank"><button type="button">Buy</button></a>
                      </div>
                  <?php endforeach; ?>
              </div>
@@ -144,200 +203,32 @@
      <?php endforeach; ?>
  </main>
 
- <section class="contact" id="c">
-    <h2 class="contact-title">Got Questions? We're Here to Help!</h2>
-    <p class="contact-description">Fill out the form below, and we'll get back to you as soon as possible.</p>
-    
-    <form autocomplete="off" id="form-comp" class="contact-form">
-        <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="Your email address" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject" placeholder="Subject of your message" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Your message here..." required></textarea>
-        </div>
-        
-        <button class="button-sub" type="submit">Send Message</button>
+ <!-- simple contact form page -->
+<section class="contact" id="c">
+    <h2 class="contact-title">Have Questions? Please Contact Us!</h2>
+    <form autocomplete="off" id="form-comp">
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="text" name="subject" placeholder="Subject"required>
+        <textarea>
+            <input type="message" placeholder="Message" required>
+        </textarea>
+
+        <button class="button-sub" type="submit">Send</button>
     </form>
-
-    <style>
-        /* General page styles - Ensures the contact form is centered at the bottom */
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #333; /* Dark background for the site */
-            color: #f9f9f9; /* Light text color */
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh; /* Full height */
-            justify-content: flex-end; /* Pushes content to the bottom */
-            align-items: center; /* Centers horizontally */
-        }
-
-        /* Contact section styles - Applies only to the contact form container */
-        .contact {
-            background-color: #444; /* Darker background for the form */
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
-            width: 100%;
-            max-width: 600px;
-            text-align: center;
-            margin-bottom: 2rem; /* Space between form and footer */
-        }
-
-        .contact-title {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #f9f9f9; /* Light text color for title */
-            font-weight: 700;
-        }
-
-        .contact-description {
-            font-size: 1.1rem;
-            color: #ccc; /* Slightly darker gray for description */
-            margin-bottom: 2rem;
-        }
-
-        /* Form styles - Only affects form elements inside the .contact section */
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .form-group {
-            width: 100%;
-            text-align: left;
-        }
-
-        label {
-            font-size: 1rem;
-            color: #f9f9f9; /* Light text color for labels */
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 0.8rem;
-            margin-bottom: 1rem;
-            border: 1px solid #666; /* Lighter border to match dark theme */
-            border-radius: 5px;
-            font-size: 1rem;
-            background-color: #555; /* Dark background for inputs */
-            color: #f9f9f9; /* Light text color */
-            transition: border-color 0.3s ease;
-        }
-
-        input:focus, textarea:focus {
-            border-color: #5B8DF9; /* Focus color */
-            outline: none;
-        }
-
-        textarea {
-            resize: vertical;
-            height: 150px;
-        }
-
-        /* Button styles - Only applies to the submit button inside the form */
-        .button-sub {
-            background-color: #5B8DF9; /* Button color */
-            color: #fff;
-            border: none;
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .button-sub:hover {
-            background-color: #4787d4; /* Button hover effect */
-        }
-    </style>
 </section>
 
-
-
-
-<!-- Footer -->
-<footer class="site-footer" id="main-footer">
-    <style>
-        .site-footer {
-            background-color: #000;
-            color: #fff;
-            padding: 30px 20px;
-            font-family: Arial, sans-serif;
-        }
-
-        .footer-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .footer-content h3 {
-            margin-bottom: 20px;
-            font-size: 1.5em;
-            color: #f0f0f0;
-            border-bottom: 1px solid #444;
-            padding-bottom: 10px;
-        }
-
-        .contact-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .contact-item {
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .contact-item a {
-            color: #ccc;
-            text-decoration: none;
-        }
-
-        .contact-item a:hover {
-            text-decoration: underline;
-            color: #fff;
-        }
-    </style>
-
-    <div class="footer-content">
-        <h3>Contact Our Team</h3>
-        <ul class="contact-list">
-            <li class="contact-item">
-                <strong>Tanner Lancaster</strong><br>
-                <a href="mailto:tannerlancaster@my.unt.edu">tannerlancaster@my.unt.edu</a><br>
-                <span>(123) 123-1234</span>
-            </li>
-            <li class="contact-item">
-                <strong>William Woods</strong><br>
-                <a href="mailto:williamwoods@my.unt.edu">williamwoods@my.unt.edu</a><br>
-                <span>(123) 123-1234</span>
-            </li>
-            <li class="contact-item">
-                <strong>Sheldon Ballard</strong><br>
-                <a href="mailto:sheldonballard@my.unt.edu">sheldonballard@my.unt.edu</a><br>
-                <span>(123) 123-1234</span>
-            </li>
-        </ul>
+<footer class="footer" id="foot">
+    <div class="col">
+        <div class="contacts-foot" id="contact-f">
+            <p id="contact-email" class="contact-e">Email: tannerlancaster@my.unt.edu</p>
+            <p id="phone" class="phone-num">Number: 123.123.1234</p>
+            <p id="contact-email" class="contact-e">Email: williamwoods@my.unt.edu</p>
+            <p id="phone" class="phone-num">Number: 123.123.1234</p>
+            <p id="contact-email" class="contact-e">Email: sheldonballard@my.unt.edu</p>
+            <p id="phone" class="phone-num">Number: 123.123.1234</p>
+        </div>
     </div>
 </footer>
-
 
  </body>
  </html>
