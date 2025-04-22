@@ -29,7 +29,7 @@
       $message = htmlspecialchars($_GET['added']) . ' added to cart.';
   }
   //array of categories to search books, using Google Books API
-  $subjects = ['Ethical Hacking', 'Digital Forensics', 'Cyber Crime', 'Penetration Testing', 'Python Coding', 'Phishing', 'Cloud Security', 'C Programming', 'Threat Intelligence'];
+  $subjects = ['Ethical Hacking', 'Digital Forensics', 'Python Coding', 'C Programming', 'Threat Intelligence'];
   
   //function to fetch up to four books from the Google Books API by category
   function fetchBooks($subject, $apiKey) {
