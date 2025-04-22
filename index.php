@@ -180,7 +180,7 @@
       <form method="POST" class="bookbox">
           <h3>Book Test 1</h3>
           <!--hidden field to pass the book name-->
-          <input type="hidden" name="book" value="test">
+          <input type="hidden" name="book" value="t...">
           <!--description of a static book-->
           <p>Used to test cart $0.01</p>
           <!--adding a submit button-->
