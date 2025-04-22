@@ -70,7 +70,7 @@
           <a href="#About">About</a>
           <a href="#main-footer">Contact</a>
           <a href="mycart.php">Cart</a>
-          <a href="log.php">Login/Signup</a>
+          <a href="Login">Login/Signup</a>
       </div>
   </nav>
   <main>
@@ -240,7 +240,22 @@
       <?php endforeach; ?>
   </main>
 
+<div class="form-box" id="login">
+    <div class="auth-wrap">
+      <!-- sign up form -->
+      <form method="POST" action="auth.php">
+        <div class="input-group">
+          <input type="text" name="username" placeholder equals="Create Username" required>
+        </div>
+        <div class="input-group">
+          <input type="password" name="password" placeholder equals="Create Password" required>
+        </div>
+        <button type="submit" name="submit">Login</button>
+      </form>
+    </div>
+</div>
 
+<div class="
 <!-- Contact Form -->
  <div class="contact-wrapper">
   <section class="contact" id="c">
