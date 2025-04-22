@@ -48,7 +48,7 @@ main {
 }
 
 .nav-links a {
-    color: #cf9393;
+    color: #ffffff;
     text-decoration: none;
     margin-left: 20px;
     font-weight: 500;
@@ -82,7 +82,7 @@ h1, h2 {
 }
 
 nav {
-    background: rgba(0, 0, 0, 0.4); 
+    background-color: 000000; 
     padding: 18px 30px;
     display: flex;
     justify-content: space-between;
