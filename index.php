@@ -76,18 +76,19 @@
           <div class="added-message"><?= $message ?></div>
       <?php endif; ?>
   
-      <h1>Explore Cybersecurity Books</h1>
-  
-      <!--form to add static book to the cart-->
-      <form method="POST" class="book-card">
-          <h3>Book Test 1</h3>
-          <!--hidden field to pass the book name-->
-          <input type="hidden" name="book" value="The Cyber Dummy Guide">
-          <!--description of a static book-->
-          <p>Used to test cart $0.01</p>
-          <!--adding a submit button-->
-          <button type="submit">$0.01</button>
-      </form>
+<h1>Explore Cybersecurity Books</h1>
+
+<div class="center-wrapper">
+  <div class="book-grid">
+    <form method="POST" class="book-card">
+        <h3>The Cyber Dummy Guide</h3>
+        <input type="hidden" name="book" value="The Cyber Dummy Guide">
+        <p>Used to test cart $0.01</p>
+        <button type="submit">$0.01</button>
+    </form>
+  </div>
+</div>
+
   
       <!--looping through all categories to fetch and showcase the books-->
       <?php foreach ($subjects as $s): ?>
