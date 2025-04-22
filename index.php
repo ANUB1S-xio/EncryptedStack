@@ -144,19 +144,129 @@
      <?php endforeach; ?>
  </main>
 
- <!-- simple contact form page -->
 <section class="contact" id="c">
-    <h2 class="contact-title">Have Questions? Please Contact Us!</h2>
-    <form autocomplete="off" id="form-comp">
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="text" name="subject" placeholder="Subject"required>
-        <textarea>
-            <input type="message" placeholder="Message" required>
-        </textarea>
-
-        <button class="button-sub" type="submit">Send</button>
+    <h2 class="contact-title">Got Questions? We're Here to Help!</h2>
+    <p class="contact-description">Fill out the form below, and we'll get back to you as soon as possible.</p>
+    
+    <form autocomplete="off" id="form-comp" class="contact-form">
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Your email address" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Subject of your message" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Your message here..." required></textarea>
+        </div>
+        
+        <button class="button-sub" type="submit">Send Message</button>
     </form>
+
+    <style>
+        /* General page styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #333; /* Dark background color */
+            color: #f9f9f9; /* Light text color */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Contact section styles */
+        .contact {
+            background-color: #444; /* Darker background for the form */
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            margin-top: auto;  /* Pushes the contact form to the bottom of the page */
+            margin-bottom: 2rem;  /* Optional: Adds space between the form and footer */
+        }
+
+        .contact-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #f9f9f9; /* Light text color for title */
+            font-weight: 700;
+        }
+
+        .contact-description {
+            font-size: 1.1rem;
+            color: #ccc; /* Slightly darker gray for description */
+            margin-bottom: 2rem;
+        }
+
+        /* Form styles */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            width: 100%;
+            text-align: left;
+        }
+
+        label {
+            font-size: 1rem;
+            color: #f9f9f9; /* Light text color for labels */
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #666; /* Lighter border to match dark theme */
+            border-radius: 5px;
+            font-size: 1rem;
+            background-color: #555; /* Dark background for inputs */
+            color: #f9f9f9; /* Light text color */
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #5B8DF9; /* Focus color */
+            outline: none;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 150px;
+        }
+
+        /* Button styles */
+        .button-sub {
+            background-color: #5B8DF9; /* Button color */
+            color: #fff;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-sub:hover {
+            background-color: #4787d4; /* Button hover effect */
+        }
+    </style>
 </section>
+
 
 
 <!-- Footer -->
