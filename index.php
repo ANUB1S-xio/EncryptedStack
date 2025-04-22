@@ -3,7 +3,7 @@
   //starts the session
   session_start();        
   //creating an empty cart if one doesn't exist yet
-  if (!isset($_SESSION['cart'])) $_SESSION['cart'] = [];        
+  if (!isset($_SESSION['mycart'])) $_SESSION['mycart'] = [];        
   
   //handling form submission in order to add the book to the cart
   //created variable to store user-facing message regarding added items
@@ -17,7 +17,7 @@
       $book = $_POST['book'] ?? null;        
       if ($book) {
           //adding the book to the cart array in the session
-          $_SESSION['cart'][] = $book;        
+          $_SESSION['mycart'][] = $book;        
           //redirecting user to avoid form resubmission
           header("Location: index.php?added=" . urlencode($book));        
           exit;
