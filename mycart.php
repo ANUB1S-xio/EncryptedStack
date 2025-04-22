@@ -81,8 +81,8 @@
  <footer class="site-footer" id="main-footer">
      <style>
          .site-footer {
-             background-color: #000;
-             color: #fff;
+             background-color: #61c8cb;
+             color: #000;
              padding: 30px 20px;
              font-family: Arial, sans-serif;
          }
