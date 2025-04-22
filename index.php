@@ -29,7 +29,7 @@
       $message = htmlspecialchars($_GET['added']) . ' added to cart.';
   }
   //array of categories to search books, using Google Books API
-  $subjects = ['Ethical Hacking', 'Network Administration', 'Digital Forensics', 'Cyber Crime', 'Information Technology', 'Penetration Testing', 'Cryptography', 'C++', 'Python Coding', 'Systems Administration'];
+  $subjects = ['Ethical Hacking', 'Network Administration', 'Digital Forensics', 'Cyber Crime', 'Information Technology', 'Penetration Testing', 'Cryptography', 'C++', 'Python Coding', 'Systems Administration', 'Data Privacy', 'Phishing', 'Cloud Security', 'C Programming', 'Insider Threat', 'Threat Intelligence', 'IoT Security'];
   
   //function to fetch up to four books from the Google Books API by category
   function fetchBooks($subject, $apiKey) {
@@ -55,6 +55,7 @@
       <!--creating title of the webpage-->
       <title>The Encrypted Stack - Cybersecurity Bookstore</title>
       <!--linking external styles sheet (CSS) for personalization-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hack-font/3.3.0/web/hack.min.css">
       <link rel="stylesheet" href="styles.css">
   </head>
       
