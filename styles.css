@@ -89,12 +89,12 @@ nav {
     align-items: center;
 }
 
-.book-card:hover {
+.bookbox:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 15px rgba(0, 255, 255, 0.2); 
 }
 
-.book-card img {
+.bookbox img {
     width: 150px;
     height: 220px;
     object-fit: cover;
@@ -103,7 +103,7 @@ nav {
     image-rendering: auto;
 }
 
-.book-card {
+.bookbox {
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(219, 114, 123, 0.4);
     border-radius: 12px;
