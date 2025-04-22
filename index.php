@@ -144,6 +144,21 @@
       <?php endforeach; ?>
   </main>
 
+ <!-- simple contact form page -->
+<section class="contact" id="c">
+    <h2 class="contact-title">Have Questions? Please Contact Us!</h2>
+    <form autocomplete="off" id="form-comp">
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="text" name="subject" placeholder="Subject"required>
+        <textarea>
+            <input type="message" placeholder="Message" required>
+        </textarea>
+
+        <button class="button-sub" type="submit">Send</button>
+    </form>
+</section>
+
+
 <!-- Footer -->
  <footer class="site-footer" id="main-footer">
      <style>
