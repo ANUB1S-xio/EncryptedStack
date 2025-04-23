@@ -9,7 +9,7 @@
   //created variable to store user-facing message regarding added items
   $m = null;        
     //google books API
-  $apiKey = 'AIzaSyBv-xcZYFlCHrFqS9NA2KsyTyesy9C2pvo';
+  $apiKey = 'AIzaSyDOQBJkg0s-IiuupraVuhIg_YXngwYmpa4';
 
   //array of categories to search books, using Google Books API
   $subjects = ['Ethical Hacking', 'Digital Forensics', 'Python Coding', 'C Programming', 'Threat Intelligence'];
