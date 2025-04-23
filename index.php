@@ -178,18 +178,7 @@
     
     
     
-    <h1>Explore Cybersecurity Books</h1>
-  
-      <!--form to add static book to the cart-->
-      <form method="POST" class="bookbox">
-          <h3>Book Test 1</h3>
-          <!--hidden field to pass the book name-->
-          <input type="hidden" name="book" value="t...">
-          <!--description of a static book-->
-          <p>Used to test cart $0.01</p>
-          <!--adding a submit button-->
-          <button type="submit">$0.01</button>
-      </form>
+    <h1>Explore Your Favorite Cybersecurity Books</h1>
   
       <!--looping through all categories to fetch and showcase the books-->
       <?php foreach ($subjects as $s): ?>
@@ -226,13 +215,11 @@
                           <!--adding the book cover image-->
                           <img src="<?= htmlspecialchars($img) ?>" alt="<?= htmlspecialchars($title) ?>">
                           <!--adding the book title-->
-                          <h3><?= htmlspecialchars(substr($title, 0, 6)) ?>...</h3>
-                          <!--adding a shortened description of the book-->
-                          <p><?= htmlspecialchars(substr($desc, 0, 80)) ?>...</p>
+                          <h3><?= htmlspecialchars(substr($title, 0, 10)) ?>...</h3>
                           <!--adding a link to the book's info-->
                           <a href="<?= htmlspecialchars($link) ?>" target="_blank">
                               <!--adding a button for the book's full info-->
-                              <button type="button">Visit</button>
+                              <button type="button">Buy</button>
                           </a>
                       </div>
                   <?php endforeach; ?>
