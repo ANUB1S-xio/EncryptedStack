@@ -6,6 +6,8 @@
       $_SESSION['message'] = "Your cart is currently empty. Please add something before checking out.";
       header("Location: cart.php");
       exit;
+
+    // end of php
   }
   ?>
   
@@ -22,6 +24,8 @@
   <!-- This is the site title, along with the logo. -->
       <div class="logo">Sec-Reads</div>
       <div class="nav-links">
+
+        <!-- Sections of the website -->
           <a href="index.php">Home Page</a>
           <a href="cart.php">Cart</a>
           <a href="#">About Us</a>
@@ -87,19 +91,27 @@
          }
      </style>
  
-     <div class="footer-content">
+    
+   <!-- Our group members -->
+   <div class="footer-content">
          <h3>Contact Our Team</h3>
          <ul class="contact-list">
              <li class="contact-item">
+
+               <!-- Member: Tanner Lancaster -->
                  <strong>Tanner Lancaster</strong><br>
                  <a href="mailto:tannerlancaster@my.unt.edu">tannerlancaster@my.unt.edu</a><br>
                  <span>(123) 123-1234</span>
              </li>
+
+           <!-- Member: William Woods -->
              <li class="contact-item">
                  <strong>William Woods</strong><br>
                  <a href="mailto:williamwoods@my.unt.edu">williamwoods@my.unt.edu</a><br>
                  <span>(123) 123-1234</span>
              </li>
+
+           <!-- Member: Sheldon Ballard -->
              <li class="contact-item">
                  <strong>Sheldon Ballard</strong><br>
                  <a href="mailto:sheldonballard@my.unt.edu">sheldonballard@my.unt.edu</a><br>
