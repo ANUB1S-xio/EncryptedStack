@@ -7,28 +7,10 @@
   
   //handling form submission in order to add the book to the cart
   //created variable to store user-facing message regarding added items
-  $message = null;        
+  $m = null;        
     //google books API
   $apiKey = 'AIzaSyDOQBJkg0s-IiuupraVuhIg_YXngwYmpa4';
 
- /* //handling POST requests for adding a book to the cart
-  if ($_SERVER['REQUEST_METHOD'] === 'POST') {  
-      //get "book" from POST data, fallback to null
-      $book = $_POST['book'] ?? null;        
-      if ($book) {
-          //adding the book to the cart array in the session
-          $_SESSION['mycart'][] = $book;        
-          //redirecting user to avoid form resubmission
-          header("Location: index.php?added=" . urlencode($book));        
-          exit;
-      }
-  }
-  //if redirected in URL, display a confirmation message
-  if (isset($_GET['added'])) {   
-      //cleaning up message
-      $message = htmlspecialchars($_GET['added']) . ' added to cart.';
-  }
-  */
   //array of categories to search books, using Google Books API
   $subjects = ['Ethical Hacking', 'Digital Forensics', 'Python Coding', 'C Programming', 'Threat Intelligence'];
   
@@ -77,9 +59,9 @@
   </nav>
   <main>
       <!--shows book added message if available/applicable-->
-      <?php if ($message): ?>
+      <?php if ($m): ?>
       <!--display message indicating book was added to cart-->
-          <div class="added-message"><?= $message ?></div>
+          <div class="added-message"><?= $m ?></div>
       <?php endif; ?>
   
       
@@ -200,6 +182,8 @@
                       $title = $info['title'] ?? 'Untitled';
                       //getting description or else defaulted to an empty string
                       $desc = $info['description'] ?? '';
+
+            
                       //get image URL or fallback to the placeholder image
                       $img = $info['imageLinks']['small'] ??
                              $info['imageLinks']['medium'] ??
@@ -215,7 +199,8 @@
                           <!--adding the book cover image-->
                           <img src="<?= htmlspecialchars($img) ?>" alt="<?= htmlspecialchars($title) ?>">
                           <!--adding the book title-->
-                          <h3><?= htmlspecialchars(substr($title, 0, 10)) ?>...</h3>
+                          <!-- set cap count to 10 words -->
+                          <h3><?= htmlspecialchars(substr($title, 0, 10)) ?></h3>
                           <!--adding a link to the book's info-->
                           <a href="<?= htmlspecialchars($link) ?>" target="_blank">
                               <!--adding a button for the book's full info-->
@@ -225,6 +210,8 @@
                   <?php endforeach; ?>
               </div>
           </div>
+
+    
           <?php endif; ?>
       <?php endforeach; ?>
   </main>
