@@ -2,50 +2,61 @@ body {
     /* Sets the tone for the website, creating a dark gray theme. */
 
     /* Font family goes well with the site */
+
+    background-color: #333232; 
+    
+    color: #d3cfcf;
+
     font-family: 'Hack', monospace;
-    background-color: #1e1e1e;; 
-    color: #d3cfcf; 
-    margin: 0;
+
     padding: 0;
+    
+    margin: 0;
 }
 
 button {
     /* Customization for the buttons so they match the theme */
-    background: linear-gradient(to right, #00e6ac, #00ffff);
-    color: #000;
-    padding: 13px 22px;
+    color: #000000;
+
+    font-size: 0.8rem;
+    transition: all 0.25s ease-in-out; 
     border: none;
+    text-transform: uppercase;
+
     border-radius: 12px;
     font-weight: bold;
-    font-size: 1rem;
+
     cursor: pointer;
-    text-transform: uppercase;
+
+    background: linear-gradient(to right, #07e3aa, #06ba8b);
+
+    padding: 12px 21px;
     margin-top: 8px;
-    transition: all 0.3s ease-in-out; 
 }
 
 button:hover {
+    transform: scale(1.05); 
     /* Change appearance of button when mouse goes over it */
     box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-    transform: scale(1.05); 
 }
 
 .logo {
+    color: #000000;
     font-size: 1.75rem;
     font-weight: bold;
-    color: #000000;
 }
 
 .content-box {
-    max-width: 600px; 
-    margin: 40px auto;
     background: rgba(224, 212, 212, 0.08); 
-    border: 1px solid rgba(0, 255, 255, 0.25);
-    padding: 30px;
     border-radius: 12px;
+    margin: 40px auto;
     box-shadow: 0 8px 24px rgba(0, 255, 255, 0.1);
     backdrop-filter: blur(8px);
     text-align: center;
+    border: 1px solid rgba(0, 245, 245, 0.25);
+    padding: 30px;
+    max-width: 595px; 
+
 }
 
 main {
@@ -53,13 +64,14 @@ main {
 }
 
 .nav-links a {
-    color: #000000;
     text-decoration: none;
-    margin-left: 20px;
-    font-weight: 500;
     text-transform: capitalize; 
+    margin-left: 22px;
+    font-weight: 500;
+    color: #000000;
+    font-size: 0.93rem;
     position: relative;
-    font-size: 0.95rem;
+
 }
 
 .nav-links a:hover::after {
@@ -70,23 +82,22 @@ main {
 }
 
 .nav-links a::after {
-    
+    transition: transform 0.3s ease-in-out;
     content: '';
     position: absolute;
     width: 100%;
     height: 2px;
-    background: #00ffff;
     left: 0;
     bottom: -5px;
     transform: scaleX(0);
+    background: #07e3aa;
     transform-origin: right;
-    transition: transform 0.3s ease-in-out;
 }
 
 h1, h2 {
     /* Customization for the headers */
 
-    color: #ffffff;
+    color: #fff;
     text-align: center;
     margin-bottom: 16px;
 }
