@@ -11,7 +11,7 @@
     //google books API
   $apiKey = 'AIzaSyDOQBJkg0s-IiuupraVuhIg_YXngwYmpa4';
 
-  //handling POST requests for adding a book to the cart
+ /* //handling POST requests for adding a book to the cart
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {  
       //get "book" from POST data, fallback to null
       $book = $_POST['book'] ?? null;        
@@ -28,6 +28,7 @@
       //cleaning up message
       $message = htmlspecialchars($_GET['added']) . ' added to cart.';
   }
+  */
   //array of categories to search books, using Google Books API
   $subjects = ['Ethical Hacking', 'Digital Forensics', 'Python Coding', 'C Programming', 'Threat Intelligence'];
   
