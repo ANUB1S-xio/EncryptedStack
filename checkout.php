@@ -46,7 +46,7 @@
 
 
     
-<!-- Footer -->
+<!-- Footer. Here to inform users about who we are  -->
  <footer class="site-footer" id="main-footer">
      <style>
          .site-footer {
