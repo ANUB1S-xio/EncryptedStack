@@ -19,10 +19,11 @@
         <!-- adding logo/brand name -->
         <div class="logo">TheEncryptedStack</div>   
 
-         <!-- navigation links -->
+         <!-- navigation links. Crucial for the ability to go around the website -->
         <div class="nav-links">   
             <!-- links back to the home page -->
-            <a href="index.php">Home</a>      
+            <a href="index.php">Home</a> 
+
             <a href="#">Contact</a>        <!-- acts as a placeholder link for the contact page -->
         </div>
 </nav>
@@ -38,9 +39,10 @@
 
 
 
-<!-- Footer -->
+<!-- Footer. Essential for letting users know who we are -->
  <footer class="site-footer" id="main-footer">
      <style>
+
          .site-footer {
              background-color: #61c8cb;
              color: #000;
